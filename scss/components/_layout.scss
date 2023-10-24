@@ -1,0 +1,11 @@
+@use "../utilities/mixins" as *;
+
+
+    .flex-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+       gap: 15px;
+       width: 100%;
+    }
