@@ -1,24 +1,41 @@
-@use "../utilities/mixins" as *;
+@use "../utilities/mixins"as *;
+
+$color: hsl(240 51% 20% / 0.793);
+$scale: 1.1 1.1;
 
 .modal-close {
-    position: absolute;
-    right: 15px;
-    top: 5px;
-    cursor: pointer;
-    font-size: 15px;
-    }
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 200ms;
 
-    .left{
-      position: absolute;
-      right: 180px;
-      top: 80px;
-      font-size: 20px;
-      cursor: pointer;
-    }
-    .right{
-      position: absolute;
-      left: 180px;
-      top: 80px;
-      font-size: 20px;
-      cursor: pointer;
-    }
+  &:hover {
+    color: $color;
+    scale: $scale;
+  }
+}
+
+.modal-btn {
+  position: absolute;
+  top: 80px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 200ms;
+
+  $btn-position: 180px;
+
+  &:hover {
+    color: $color;
+    scale: $scale;
+  }
+
+  &--left {
+    right: $btn-position;
+  }
+
+  &--right {
+    left: $btn-position;
+  }
+}

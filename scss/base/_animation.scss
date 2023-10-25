@@ -1,11 +1,11 @@
-@use "../utilities/mixins" as *;
-
+@use "../utilities/mixins"as *;
 
 @keyframes fade-in {
     0% {
         visibility: hidden;
         opacity: 0;
     }
+
     100% {
         visibility: visible;
         opacity: 1;
@@ -17,13 +17,12 @@
         visibility: visible;
         opacity: 1;
     }
+
     100% {
         visibility: hidden;
         opacity: 0;
     }
 }
-
-
 
 .fade-in {
     animation: fade-in 400ms ease-in;
@@ -31,4 +30,12 @@
 
 .fade-out {
     animation: fade-out 400ms ease-in;
+}
+
+.show {
+    display: block !important;
+}
+
+.hide {
+    display: none !important;
 }

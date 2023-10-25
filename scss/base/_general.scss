@@ -1,20 +1,10 @@
-@use "../utilities/mixins" as *;
+@use "../utilities/mixins"as *;
 
 body {
     padding: 5px;
     position: relative;
-    }
+}
 
-    h2{
-            font-weight: 600;
-        }
-
-  .show {
-            display: block !important;
-        }
-        
-  .hide {
-            // display:block;
-            display: none !important;
-        }
-        
+h2 {
+    font-weight: 600;
+}
