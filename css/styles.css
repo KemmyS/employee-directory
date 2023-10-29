@@ -95,10 +95,10 @@ h2 {
 
 .employee-card {
   width: 200px;
-  height: 80px;
+  height: 90px;
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   border-radius: 3px;
   border: 1px solid rgba(191, 186, 186, 0.584);
@@ -113,6 +113,11 @@ h2 {
   border: 1px solid hsla(240, 51%, 20%, 0.793);
 }
 
+@media (min-width: 1024px) {
+  .employee-card {
+    width: 300px;
+  }
+}
 .flex-container {
   display: flex;
   flex-wrap: wrap;

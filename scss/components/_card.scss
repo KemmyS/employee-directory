@@ -2,10 +2,10 @@
 
 .employee-card {
     width: 200px;
-    height: 80px;
+    height: 90px;
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     border-radius: 3px;
     border: 1px solid rgba(191, 186, 186, 0.584);
@@ -18,13 +18,9 @@
     &:hover{
         @include hover;
     }
-
-
-    // @media (min-width: 768px){
-    //     width: 220px;
-    //    }
-    // @media (min-width: 1024px){
-    //     width: 300px;
-    //    }
+    
+    @media (min-width: 1024px){
+        width: 300px;
+       }
 }
 
