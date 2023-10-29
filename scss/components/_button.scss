@@ -17,14 +17,15 @@ $scale: 1.1 1.1;
   }
 }
 
-.modal-btn {
+.slider-btn {
   position: absolute;
-  top: 80px;
+  top: 37%;
   font-size: 20px;
   cursor: pointer;
   transition: all 200ms;
+  z-index: 102;
 
-  $btn-position: 180px;
+  $btn-position: 93%;
 
   &:hover {
     color: $color;

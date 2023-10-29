@@ -201,8 +201,8 @@ flexContainer.addEventListener("click", (e) => {
 employeeModalClose.addEventListener("click", () => overlay.classList.add("hide"));
 
 //SLIDER COMPONENT
-const leftButton = document.querySelector(".modal-btn--left");
-const rightButton = document.querySelector(".modal-btn--right");
+const leftButton = document.querySelector(".slider-btn--left");
+const rightButton = document.querySelector(".slider-btn--right");
 
 /**
  * Moves the slide with an animation.

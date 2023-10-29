@@ -80,25 +80,26 @@ h2 {
   scale: 1.1 1.1;
 }
 
-.modal-btn {
+.slider-btn {
   position: absolute;
-  top: 80px;
+  top: 37%;
   font-size: 20px;
   cursor: pointer;
   transition: all 200ms;
+  z-index: 102;
 }
 
-.modal-btn:hover {
+.slider-btn:hover {
   color: hsla(240, 51%, 20%, 0.793);
   scale: 1.1 1.1;
 }
 
-.modal-btn--left {
-  right: 180px;
+.slider-btn--left {
+  right: 93%;
 }
 
-.modal-btn--right {
-  left: 180px;
+.slider-btn--right {
+  left: 93%;
 }
 
 .employee-card {
