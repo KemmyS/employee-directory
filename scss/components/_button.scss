@@ -19,13 +19,13 @@ $scale: 1.1 1.1;
 
 .slider-btn {
   position: absolute;
-  top: 37%;
-  font-size: 20px;
+  top: 50%;
+  font-size: 25px;
   cursor: pointer;
   transition: all 200ms;
   z-index: 102;
 
-  $btn-position: 93%;
+  $btn-position: 90%;
 
   &:hover {
     color: $color;

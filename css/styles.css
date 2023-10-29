@@ -82,8 +82,8 @@ h2 {
 
 .slider-btn {
   position: absolute;
-  top: 37%;
-  font-size: 20px;
+  top: 50%;
+  font-size: 25px;
   cursor: pointer;
   transition: all 200ms;
   z-index: 102;
@@ -95,11 +95,11 @@ h2 {
 }
 
 .slider-btn--left {
-  right: 93%;
+  right: 90%;
 }
 
 .slider-btn--right {
-  left: 93%;
+  left: 90%;
 }
 
 .employee-card {
@@ -276,7 +276,7 @@ h2 {
 .employee-modal {
   position: fixed;
   top: 5%;
-  right: 25%;
+  right: 20%;
   width: 250px;
   height: 300px;
   text-align: center;
@@ -295,6 +295,22 @@ h2 {
   border: 1px solid hsla(240, 51%, 20%, 0.793);
 }
 
+@media only screen and (min-width: 768px) {
+  .employee-modal {
+    width: 270px;
+    height: 320px;
+    top: 15%;
+    right: 30%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .employee-modal {
+    width: 270px;
+    height: 320px;
+    top: -70px;
+    right: 40%;
+  }
+}
 .slider {
   position: relative;
   overflow: hidden;
@@ -311,4 +327,58 @@ h2 {
   width: 100%;
   height: 100%;
   transition: transform 400ms;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider .slide .img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100px;
+  object-fit: cover;
+}
+
+@media only screen and (min-width: 768px) {
+  .slider .slide .img {
+    width: 120px;
+  }
+}
+.slider .slide .text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: inherit;
+  height: inherit;
+}
+
+.slider .slide .text-container p {
+  text-align: center;
+  color: hsla(240, 50%, 20%, 0.7);
+  font-size: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .slider .slide .text-container p {
+    font-size: 11px;
+  }
+}
+.slider .slide .text-container .text-upper,
+.slider .slide .text-container .text-lower {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 10px;
+}
+
+.slider .slide .text-container .text-upper .name {
+  font-weight: 600;
+  font-size: 11px;
+}
+
+@media only screen and (min-width: 768px) {
+  .slider .slide .text-container .text-upper .name {
+    font-size: 13px;
+  }
 }

@@ -140,26 +140,35 @@ function loadModal(employeeData) {
     const textContainer = document.createElement("div");
     textContainer.classList.add("text-container");
 
+    const topTextDiv = document.createElement("div");
+    topTextDiv.classList.add("text-upper");
+
     const h2 = document.createElement("h2");
     h2.classList.add("name");
     h2.textContent = `${first} ${last}`;
-    textContainer.append(h2);
+    topTextDiv.append(h2);
 
-    createParagraph("email", email, textContainer);
-    createParagraph("address", city, textContainer);
+    createParagraph("email", email, topTextDiv);
+    createParagraph("address", city, topTextDiv);
 
     const hr = document.createElement("hr");
-    textContainer.append(hr);
+    topTextDiv.append(hr);
 
-    createParagraph("phone", phone, textContainer);
+    const lowerTextDiv = document.createElement("div");
+    lowerTextDiv.classList.add("text-lower");
+
+    createParagraph("phone", phone, lowerTextDiv);
 
     createParagraph("address", 
     `${street.number} ${street.name}, ${state} ${postcode}`
-    , textContainer);
+    , lowerTextDiv);
 
     createParagraph("date",
      `Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`, 
-     textContainer);
+     lowerTextDiv);
+
+     textContainer.append(topTextDiv);
+     textContainer.append(lowerTextDiv);
 
     slide.append(textContainer);
     slides.push(slide);
