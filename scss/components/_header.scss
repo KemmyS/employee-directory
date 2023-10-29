@@ -2,26 +2,40 @@
 
 .main-header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    padding: 5px;
+    padding-left: 2px;
     text-transform: uppercase;
     font-size: 12px;
+
+    h1 {
+        font-weight: 600;
+        font-size: 13px;
+    }
 
     #search {
         display: block;
         width: 100px;
         padding: 2px;
+        padding-right: 20px;
         border-radius: 3px;
-        border: 1px solid rgba(191, 186, 186, 0.584);
+        border: 1px solid hsl(0 0% 54%/ 0.5);
         transition: all 200ms;
         outline: none;
+
+        @include mq(large) {
+            width: 200px;
+            margin-right: 6px;
+            margin-bottom: 3px;
+        }
 
         &:hover {
             @include hover;
         }
 
         &:focus {
-            border: 1px solid rgba(191, 186, 186, 0.584);
+            border: 1px solid hsl(0 4% 74% / 0.5);
         }
     }
 
