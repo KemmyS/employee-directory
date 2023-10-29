@@ -1,8 +1,8 @@
 const employees = [];
 const modalContent = [];
 
-const urlProfiles = `https://randomuser.me/api/?results=12&inc=name, picture,
-email, location, phone, dob &noinfo &nat=US`;
+const employeeApiUrl = `https://randomuser.me/api/?results=12&inc=name,picture,
+email,location,phone,dob&noinfo&nat=US`;
 
 const overlay = document.querySelector(".overlay");
 const flexContainer = document.querySelector(".flex-container");
@@ -32,15 +32,20 @@ function init(employeeData) {
   buildSlider();
 }
 
+/**
+ * Fetch the API data when the page loads.
+ */
 window.addEventListener("load", () => {
-  fetch(urlProfiles)
+  fetch(employeeApiUrl)
   .then((res) => res.json())
   .then((res) => res.results)
   .then(init)
   .catch((err) => console.log(err));
 });
 
-//search input
+/**
+ * The Search Input functionality
+ */
 search.addEventListener("keyup", (e) => {
   const currentValue = e.target.value.toLowerCase();
   const memberProfiles = document.querySelectorAll(".employee-card");
@@ -68,7 +73,7 @@ search.addEventListener("keyup", (e) => {
 });
 
 /**
- * Stores the employee HTML as we create it
+ * Transforms employee API data into HTML
  * @param {object[]} employeeData the employee json from the API
  */
 function displayProfiles(employeeData) {
@@ -110,6 +115,10 @@ function createParagraph(className, textContent, container) {
   container.append(element);
 }
 
+/**
+ * Inserts employee data into the modal when the page loads.
+ * @param {object[]} employeeData 
+ */
 function loadModal(employeeData) {
   employeeData.forEach((employee, idx) => {
     const { first, last } = employee.name;
@@ -155,6 +164,10 @@ function loadModal(employeeData) {
   modalContainer.childNodes[0].textContent = null;
 }
 
+/**
+ * Opens the modal with the specified employee's data.
+ * @param {number} index the employee's location in the array
+ */
 function openModal(index) {
   //Show the appropriate modal as content
   const content = modalContent[index];
@@ -164,6 +177,9 @@ function openModal(index) {
   overlay.classList.remove("hide");
 }
 
+/**
+ * Adds a click event to the employee's card.
+ */
 flexContainer.addEventListener("click", (e) => {
   const card = e.target;
 
@@ -173,12 +189,19 @@ flexContainer.addEventListener("click", (e) => {
   }
 });
 
+/**
+ * Click even to close the modal
+ */
 employeeModalClose.addEventListener("click", () => overlay.classList.add("hide"));
 
 //SLIDER COMPONENT
 const leftButton = document.querySelector(".modal-btn--left");
 const rightButton = document.querySelector(".modal-btn--right");
 
+/**
+ * Moves the slide with an animation.
+ * @param {number} index the location of the slide in the array.
+ */
 function goToSlide(index) {
   modalContent.forEach((m, idx) => {
     m.style.transform = `translateX(${120 * (idx - index)}%)`;
@@ -188,11 +211,17 @@ function goToSlide(index) {
 let currentSlide = 0;
 let maxSlides = 0;
 
+/**
+ * Initialize the slider's functionality when the page loads.
+ */
 function buildSlider() {
   maxSlides = modalContent.length;
   goToSlide(0);
 }
 
+/**
+ * Move to the next slide.
+ */
 const next = () => {
   if (currentSlide === maxSlides - 1) {
     currentSlide = 0;
@@ -203,6 +232,9 @@ const next = () => {
   goToSlide(currentSlide);
 };
 
+/**
+ * Return to the previous slide.
+ */
 const previous = () => {
   if (currentSlide === 0) {
     currentSlide = maxSlides - 1;
