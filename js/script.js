@@ -1,5 +1,5 @@
 const employees = [];
-const modalContent = [];
+const slides = [];
 
 const employeeApiUrl = `https://randomuser.me/api/?results=12&inc=name,picture,
 email,location,phone,dob&noinfo&nat=US`;
@@ -8,7 +8,7 @@ const overlay = document.querySelector(".overlay");
 const flexContainer = document.querySelector(".flex-container");
 
 const employeeCard = document.querySelector(".employee-card");
-const modalContainer = document.querySelector(".modal-container");
+const slider = document.querySelector(".slider");
 const employeeModalClose = document.querySelector(".modal-close");
 const employeeModal = document.querySelector(".employee-modal");
 const search = document.getElementById("search");
@@ -127,41 +127,47 @@ function loadModal(employeeData) {
     const city = employee.location.city;
     const date = new Date(employee.dob.date);
 
-    const modalContentDiv = document.createElement("div");
-    modalContentDiv.classList.add("modal-content");
-    modalContentDiv.setAttribute("data-index", idx);
+    const slide = document.createElement("div");
+    slide.classList.add("slide");
+    slide.setAttribute("data-index", idx);
 
     const img = document.createElement("img");
     img.classList.add("img")
     img.src = picture.large;
     img.alt = "Employee Image"
-    modalContentDiv.append(img);
+    slide.append(img);
 
-    const textDiv = document.createElement("div");
-    textDiv.classList.add("text-container");
+    const textContainer = document.createElement("div");
+    textContainer.classList.add("text-container");
 
     const h2 = document.createElement("h2");
     h2.classList.add("name");
     h2.textContent = `${first} ${last}`;
-    textDiv.append(h2);
+    textContainer.append(h2);
 
-    createParagraph("email", email, textDiv);
-    createParagraph("address", city, textDiv);
+    createParagraph("email", email, textContainer);
+    createParagraph("address", city, textContainer);
 
     const hr = document.createElement("hr");
-    textDiv.append(hr);
+    textContainer.append(hr);
 
-    createParagraph("phone", phone, textDiv);
-    createParagraph("address", `${street.number} ${street.name}, ${state} ${postcode}`, textDiv);
-    createParagraph("date", `Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`, textDiv);
+    createParagraph("phone", phone, textContainer);
 
-    modalContentDiv.append(textDiv);
-    modalContent.push(modalContentDiv);
-    modalContainer.append(modalContentDiv);
+    createParagraph("address", 
+    `${street.number} ${street.name}, ${state} ${postcode}`
+    , textContainer);
+
+    createParagraph("date",
+     `Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`, 
+     textContainer);
+
+    slide.append(textContainer);
+    slides.push(slide);
+    slider.append(slide);
   });
 
   //Deletes the "&nbsp;" text node
-  modalContainer.childNodes[0].textContent = null;
+  slider.childNodes[0].textContent = null;
 }
 
 /**
@@ -170,8 +176,8 @@ function loadModal(employeeData) {
  */
 function openModal(index) {
   //Show the appropriate modal as content
-  const content = modalContent[index];
-  goToSlide(+content.getAttribute("data-index"));
+  const slide = slides[index];
+  goToSlide(+slide.getAttribute("data-index"));
 
   //Show the overlay and modal
   overlay.classList.remove("hide");
@@ -203,8 +209,8 @@ const rightButton = document.querySelector(".modal-btn--right");
  * @param {number} index the location of the slide in the array.
  */
 function goToSlide(index) {
-  modalContent.forEach((m, idx) => {
-    m.style.transform = `translateX(${120 * (idx - index)}%)`;
+  slides.forEach((slide, idx) => {
+    slide.style.transform = `translateX(${120 * (idx - index)}%)`;
   });
 }
 
@@ -215,7 +221,7 @@ let maxSlides = 0;
  * Initialize the slider's functionality when the page loads.
  */
 function buildSlider() {
-  maxSlides = modalContent.length;
+  maxSlides = slides.length;
   goToSlide(0);
 }
 
