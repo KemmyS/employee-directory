@@ -38,10 +38,18 @@ body {
   padding: 5px;
   position: relative;
   min-height: 100vh;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.3;
+  font-size: 16px;
+  background-color: hsl(0, 0%, 98%);
+  margin: 0 auto;
 }
 
+@media only screen and (min-width: 1024px) {
+  body {
+    max-width: 1024px;
+  }
+}
 h2 {
   font-weight: 700;
 }
@@ -49,12 +57,12 @@ h2 {
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 * {
-  margin: 0;
-  padding: 0;
   font: inherit;
 }
 
@@ -94,18 +102,19 @@ h2 {
 }
 
 .employee-card {
-  width: 200px;
-  height: 90px;
+  width: 275px;
+  background-color: white;
   display: flex;
   align-items: center;
-  padding: 5px;
-  text-align: center;
-  border-radius: 3px;
-  border: 1px solid rgba(191, 186, 186, 0.584);
+  justify-content: flex-start;
+  padding: 10px 15px;
+  padding-right: 20px;
+  border-radius: 4px;
+  border: 1px solid hsla(0, 0%, 54%, 0.5);
   gap: 10px;
   font-size: 8px;
+  box-shadow: 0px 1px 1px 0px hsla(0, 0%, 0%, 0.12);
   transition: all 200ms;
-  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.12);
 }
 
 .employee-card:hover {
@@ -113,9 +122,53 @@ h2 {
   border: 1px solid hsla(240, 51%, 20%, 0.793);
 }
 
-@media (min-width: 1024px) {
+@media only screen and (min-width: 1024px) {
   .employee-card {
-    width: 300px;
+    gap: 12px;
+    padding-right: 0px;
+    width: 24%;
+  }
+}
+.employee-card .img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: 72px;
+  object-fit: cover;
+}
+
+@media only screen and (min-width: 1024px) {
+  .employee-card .img {
+    width: 60px;
+  }
+}
+.employee-card .text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+  gap: 2px;
+  color: hsl(240, 50%, 20%);
+}
+
+.employee-card .text-container p {
+  color: hsla(240, 50%, 20%, 0.7);
+}
+
+.employee-card .text-container .name {
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.employee-card .text-container .email,
+.employee-card .text-container .address {
+  font-size: 10px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .employee-card .text-container .email,
+  .employee-card .text-container .address {
+    font-size: 9px;
   }
 }
 .flex-container {
@@ -123,11 +176,19 @@ h2 {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   width: 100%;
+  max-width: 100%;
   height: 100%;
 }
 
+@media only screen and (min-width: 1024px) {
+  .flex-container {
+    margin: 0 auto;
+    justify-content: stretch;
+    gap: 10px;
+  }
+}
 .img {
   width: 50px;
   border-radius: 100px;
@@ -135,29 +196,61 @@ h2 {
 
 .main-header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 5px;
+  padding-left: 2px;
   text-transform: uppercase;
   font-size: 12px;
+  width: 100%;
 }
 
+.main-header h1 {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+@media only screen and (min-width: 768px) {
+  .main-header h1 {
+    margin-left: 9%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .main-header h1 {
+    margin-left: 0;
+  }
+}
 .main-header #search {
   display: block;
   width: 100px;
   padding: 2px;
+  padding-right: 20px;
   border-radius: 3px;
-  border: 1px solid rgba(191, 186, 186, 0.584);
+  border: 1px solid hsla(0, 0%, 54%, 0.5);
   transition: all 200ms;
   outline: none;
 }
 
+@media only screen and (min-width: 768px) {
+  .main-header #search {
+    width: 150px;
+    margin-right: 8%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .main-header #search {
+    width: 200px;
+    margin-right: 6px;
+    margin-bottom: 3px;
+  }
+}
 .main-header #search:hover {
   box-shadow: 0 5px 5px -4px;
   border: 1px solid hsla(240, 51%, 20%, 0.793);
 }
 
 .main-header #search:focus {
-  border: 1px solid rgba(191, 186, 186, 0.584);
+  border: 1px solid hsla(0, 4%, 74%, 0.5);
 }
 
 .overlay {

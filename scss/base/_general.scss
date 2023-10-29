@@ -1,11 +1,18 @@
-@use "../utilities/mixins"as *;
+@use "../utilities/mixins" as *;
 
 body {
     padding: 5px;
     position: relative;
     min-height: 100vh;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.3;
+    font-size: 16px;
+    background-color: hsl(0 0% 98%);
+    margin: 0 auto;
+
+    @include mq(large) {
+        max-width: 1024px;
+    }
 }
 
 h2 {

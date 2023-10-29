@@ -1,8 +1,6 @@
 @use "../utilities/mixins"as *;
 
-.employee-card {
-    $box-shadow-color: hsl(0 0% 0% / 0.12);
-    
+.employee-card {    
     width: 275px;
     background-color: white;
     display: flex;
@@ -14,8 +12,7 @@
     border: 1px solid hsl(0 0% 54%/ 0.5);
     gap: 10px;
     font-size: 8px;
-    box-shadow: 0px 1px 1px 0px $box-shadow-color
-        0px 2px 2px 0px $box-shadow-color;
+    box-shadow: 0px 1px 1px 0px hsl(0 0% 0% / 0.12);
     transition: all 200ms;
 
     &:hover {
