@@ -196,8 +196,8 @@ h2 {
 
 .main-header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 5px;
   padding-left: 2px;
   text-transform: uppercase;
@@ -205,6 +205,17 @@ h2 {
   width: 100%;
 }
 
+.main-header > * {
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .main-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
 .main-header h1 {
   font-weight: 600;
   font-size: 13px;
@@ -222,7 +233,7 @@ h2 {
 }
 .main-header #search {
   display: block;
-  width: 100px;
+  width: 70%;
   padding: 2px;
   padding-right: 20px;
   border-radius: 3px;
