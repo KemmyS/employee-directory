@@ -158,6 +158,7 @@ function loadModal(employeeData) {
 function openModal(index) {
   //Show the appropriate modal as content
   const content = modalContent[index];
+  goToSlide(+content.getAttribute("data-index"));
 
   //Show the overlay and modal
   overlay.classList.remove("hide");
