@@ -197,13 +197,24 @@ function openModal(index) {
  */
 flexContainer.addEventListener("click", (e) => {
   const card = e.target;
+  
 
   if (card.classList.contains("employee-card")) {
     const index = +card.getAttribute("data-index");
     openModal(index);
   }
-});
 
+  if (card.classList.contains("img")) {
+    const index = +card.getAttribute("data-index");
+    openModal(index);
+
+  }else{
+    card.classList.contains("text-container")
+      const index = +card.getAttribute("data-index");
+      openModal(index);
+    
+  }
+});
 /**
  * Click even to close the modal
  */
