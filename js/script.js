@@ -193,28 +193,37 @@ function openModal(index) {
 }
 
 /**
+ * Extracts the data-index from the card.
+ * @param {Element} e the element being clicked on.
+ * @returns an index
+ */
+const dataIndex = (e) => +e.getAttribute("data-index");
+
+/**
  * Adds a click event to the employee's card.
  */
 flexContainer.addEventListener("click", (e) => {
-  const card = e.target;
+  const clicked = e.target;
+
+  // Ignore clicks outside of the card.
+  if (clicked.classList.contains("flex-container")) {
+    return;
+  }
+
+  let index = 0;
   
-
-  if (card.classList.contains("employee-card")) {
-    const index = +card.getAttribute("data-index");
-    openModal(index);
+  // Register's clicks on the card or its descendants
+  if (clicked.classList.contains("employee-card")) {
+    index = dataIndex(clicked);
+  } else if(clicked.classList.contains("img") || clicked.classList.contains("text-container")) {
+    index = dataIndex(clicked.parentElement);
+  } else {
+    index = dataIndex(clicked.parentElement.parentElement);
   }
 
-  if (card.classList.contains("img")) {
-    const index = +card.getAttribute("data-index");
-    openModal(index);
-
-  }else{
-    card.classList.contains("text-container")
-      const index = +card.getAttribute("data-index");
-      openModal(index);
-    
-  }
+  openModal(index);
 });
+
 /**
  * Click even to close the modal
  */

@@ -150,6 +150,7 @@ h2 {
   max-width: 100%;
   gap: 2px;
   color: hsl(240, 50%, 20%);
+  z-index: 2;
 }
 
 .employee-card .text-container p {
