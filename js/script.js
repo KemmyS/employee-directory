@@ -179,21 +179,28 @@ function loadModal(employeeData) {
   slider.childNodes[0].textContent = null;
 }
 
+//Update this variable when we open the modal.
+let currentSlide = 0;
+
 /**
  * Opens the modal with the specified employee's data.
  * @param {number} index the employee's location in the array
  */
 function openModal(index) {
+  //Set current slide to the clicked index
+  currentSlide = index;
+
   //Show the appropriate modal as content
-  const slide = slides[index];
-  goToSlide(+slide.getAttribute("data-index"));
+  const slide = slides[currentSlide];
+  const slideIndex = dataIndex(slide);
+  goToSlide(slideIndex);
 
   //Show the overlay and modal
   overlay.classList.remove("hide");
 }
 
 /**
- * Extracts the data-index from the card.
+ * Extracts the "data-index" attribute from the element.
  * @param {Element} e the element being clicked on.
  * @returns an index
  */
@@ -211,11 +218,12 @@ flexContainer.addEventListener("click", (e) => {
   }
 
   let index = 0;
-  
+
   // Register's clicks on the card or its descendants
   if (clicked.classList.contains("employee-card")) {
     index = dataIndex(clicked);
-  } else if(clicked.classList.contains("img") || clicked.classList.contains("text-container")) {
+  } else if(clicked.classList.contains("img") 
+    || clicked.classList.contains("text-container")) {
     index = dataIndex(clicked.parentElement);
   } else {
     index = dataIndex(clicked.parentElement.parentElement);
@@ -243,7 +251,7 @@ function goToSlide(index) {
   });
 }
 
-let currentSlide = 0;
+//Update this variable when the slider is built.
 let maxSlides = 0;
 
 /**
